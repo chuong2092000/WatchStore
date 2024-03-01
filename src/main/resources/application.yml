@@ -1,0 +1,41 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: chuonggiang2209@gmail.com
+    password: ptcxwoaboqnuslwi
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  thymeleaf: # Thymeleaf
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    prefix: file:src/main/resources/templates/
+  web:
+    resources:
+
+      static-locations: file:src/main/resources/static/
+      cache:
+        period: 0
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password:
+    url: jdbc:mysql://localhost:3306/java5springasm?createDatabaseIfNotExist=true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+#    show-sql: true
+    open-in-view: true

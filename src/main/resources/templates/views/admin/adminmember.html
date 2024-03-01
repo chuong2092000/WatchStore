@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Quản Lý Thành Viên</title>
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css
+" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" type="text/css" href='/cssadmin/styleadmin.css'>
+</head>
+
+<body>
+	<div class="containers">
+
+		<div th:insert="~{views/admin/header-menu::header-menu}"></div>
+		<!-- ========================= Main ==================== -->
+		<div class="main">
+			<div class="topbar">
+			</div>
+			<div class="container">
+				<div class="row" style="margin-bottom: 20px">
+					<h2 class="col-md-4">Quản Lý Thành Viên</h2>
+
+				</div>
+				<div class="row" style="margin-bottom: 20px">
+					<div class=" col-md-6">
+						<form action="/admin/member/search" class="row" method="post">
+							<input type="text" class="form-control col-md-7" name="search" value=""
+								placeholder="Tìm người dùng">
+							<button class="btn btn-dark col-md-4" style="margin-left: 5px">Tìm</button>
+						</form>
+					</div>
+					<div class="col-md-2">
+						<form action="/admin/member/sort" method="post">
+							<select name="sortUser" class="btn btn-light" onchange="this.form.submit()">
+								<option value="createday">Ngày đăng ký</option>
+								<option value="fullname">Họ
+									và tên</option>
+								<option value="email">Email</option>
+
+							</select>
+						</form>
+					</div>
+					<div class="col-md-2">
+						<form action="/admin/member/active" method="post">
+							<select name="acitveUser" class="btn btn-light" onchange="this.form.submit()">
+								<option value="true">Đang Hoạt
+									động</option>
+								<option value="false" selected>Không
+									hoạt động</option>
+							</select>
+						</form>
+					</div>
+					<div class="col-md-2">
+
+						<a class="btn btn-success" href='/document/Accounts.xlsx'> <i class="fas fa-file-excel"></i>
+							Excel
+						</a>
+
+					</div>
+				</div>
+
+				<table style="width: 100%;" class="table table-hover">
+					<thead>
+						<tr>
+							<th scope="col">Stt</th>
+							<th scope="col">Tên thành viên</th>
+							<th scope="col">Ngày đăng ký</th>
+							<th scope="col">Email</th>
+							<th scope="col">Trạng thái</th>
+							<th scope="col">Thao tác</th>
+						</tr>
+					</thead>
+
+					<tbody>
+
+						<tr>
+							<td>1</td>
+							<td>Nguyễn Văn Trường</td>
+							<td>06/06/2023</td>
+							<td>truongnvps24083@fpt.edu.vn</td>
+
+
+							<td style="color: green;">Hoạt động</td>
+
+
+
+							<td>
+
+								<a href="/admin/member/block/1" style="text-decoration: none;" class="status return"> <i
+										class='bx bxs-trash-alt'></i>Khóa
+								</a>
+
+
+								<a th:href="@{/WatchStore/adminViewMember}" style="text-decoration: none;"
+									class="status inProgress"><i class='bx bx-show'></i> Xem</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>2</td>
+							<td>Võ Văn Hậu</td>
+							<td>06/06/2023</td>
+							<td>hauvvps24106@fpt.edu.vn</td>
+
+
+							<td style="color: green;">Hoạt động</td>
+
+
+
+							<td>
+
+								<a href="/admin/member/block/2" style="text-decoration: none;" class="status return"> <i
+										class='bx bxs-trash-alt'></i>Khóa
+								</a>
+
+
+								<a href="/admin/member/view/2" style="text-decoration: none;"
+									class="status inProgress"><i class='bx bx-show'></i> Xem</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>3</td>
+							<td>Nguyễn Thị Mỹ</td>
+							<td>09/06/2023</td>
+							<td>my@gmail.com</td>
+
+
+							<td style="color: green;">Hoạt động</td>
+
+
+
+							<td>
+
+								<a href="/admin/member/block/3" style="text-decoration: none;" class="status return"> <i
+										class='bx bxs-trash-alt'></i>Khóa
+								</a>
+
+
+								<a href="/admin/member/view/3" style="text-decoration: none;"
+									class="status inProgress"><i class='bx bx-show'></i> Xem</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>4</td>
+							<td>Võ Văn Nam</td>
+							<td>09/06/2023</td>
+							<td>name@gmail.com.vn</td>
+
+
+							<td style="color: green;">Hoạt động</td>
+
+
+
+							<td>
+
+								<a href="/admin/member/block/4" style="text-decoration: none;" class="status return"> <i
+										class='bx bxs-trash-alt'></i>Khóa
+								</a>
+
+
+								<a href="/admin/member/view/4" style="text-decoration: none;"
+									class="status inProgress"><i class='bx bx-show'></i> Xem</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>5</td>
+							<td>Nguyễn Phương Anh</td>
+							<td>09/06/2023</td>
+							<td>phuonganh@gmail.com</td>
+
+
+
+							<td style="color: red;">Ngưng hoạt động</td>
+
+
+							<td>
+
+
+								<a href="/admin/member/block/5" style="text-decoration: none;"
+									class="status delivered "> <i class='bx bx-reset'></i>Mở
+								</a>
+
+								<a href="/admin/member/view/5" style="text-decoration: none;"
+									class="status inProgress"><i class='bx bx-show'></i> Xem</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>6</td>
+							<td>Nguyễn Văn Báo</td>
+							<td>09/06/2023</td>
+							<td>baothu@gmail.com.vn</td>
+
+
+
+							<td style="color: red;">Ngưng hoạt động</td>
+
+
+							<td>
+
+
+								<a href="/admin/member/block/6" style="text-decoration: none;"
+									class="status delivered "> <i class='bx bx-reset'></i>Mở
+								</a>
+
+								<a href="/admin/member/view/6" style="text-decoration: none;"
+									class="status inProgress"><i class='bx bx-show'></i> Xem</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>7</td>
+							<td>Hồ Ngọc Hà</td>
+							<td>09/06/2023</td>
+							<td>hhha@gmail.com</td>
+
+
+							<td style="color: green;">Hoạt động</td>
+
+
+
+							<td>
+
+								<a href="/admin/member/block/7" style="text-decoration: none;" class="status return"> <i
+										class='bx bxs-trash-alt'></i>Khóa
+								</a>
+
+
+								<a href="/admin/member/view/7" style="text-decoration: none;"
+									class="status inProgress"><i class='bx bx-show'></i> Xem</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>8</td>
+							<td>Vũ Văn Mảnh</td>
+							<td>09/06/2023</td>
+							<td>manh@gmail.com.vn</td>
+
+
+							<td style="color: green;">Hoạt động</td>
+
+
+
+							<td>
+
+								<a href="/admin/member/block/8" style="text-decoration: none;" class="status return"> <i
+										class='bx bxs-trash-alt'></i>Khóa
+								</a>
+
+
+								<a href="/admin/member/view/8" style="text-decoration: none;"
+									class="status inProgress"><i class='bx bx-show'></i> Xem</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>9</td>
+							<td>Nguyễn Thị Ngọc Hân</td>
+							<td>09/06/2023</td>
+							<td>hanhahnh@gmail.com</td>
+
+
+							<td style="color: green;">Hoạt động</td>
+
+
+
+							<td>
+
+								<a href="/admin/member/block/9" style="text-decoration: none;" class="status return"> <i
+										class='bx bxs-trash-alt'></i>Khóa
+								</a>
+
+
+								<a href="/admin/member/view/9" style="text-decoration: none;"
+									class="status inProgress"><i class='bx bx-show'></i> Xem</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>10</td>
+							<td>Lê Văn Minh Trung</td>
+							<td>09/06/2023</td>
+							<td>trunganh@gmail.com.vn</td>
+
+
+							<td style="color: green;">Hoạt động</td>
+
+
+
+							<td>
+
+								<a href="/admin/member/block/10" style="text-decoration: none;" class="status return">
+									<i class='bx bxs-trash-alt'></i>Khóa
+								</a>
+
+
+								<a href="/admin/member/view/10" style="text-decoration: none;"
+									class="status inProgress"><i class='bx bx-show'></i> Xem</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>11</td>
+							<td>Lê Võ Phú Thiện</td>
+							<td>09/06/2023</td>
+							<td>thienchodien@gmail.com</td>
+
+
+
+							<td style="color: red;">Ngưng hoạt động</td>
+
+
+							<td>
+
+
+								<a href="/admin/member/block/11" style="text-decoration: none;"
+									class="status delivered "> <i class='bx bx-reset'></i>Mở
+								</a>
+
+								<a href="/admin/member/view/11" style="text-decoration: none;"
+									class="status inProgress"><i class='bx bx-show'></i> Xem</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>12</td>
+							<td>La Văn Mách</td>
+							<td>09/06/2023</td>
+							<td>machnguyen@gmail.com.vn</td>
+
+
+							<td style="color: green;">Hoạt động</td>
+
+
+
+							<td>
+
+								<a href="/admin/member/block/12" style="text-decoration: none;" class="status return">
+									<i class='bx bxs-trash-alt'></i>Khóa
+								</a>
+
+
+								<a href="/admin/member/view/12" style="text-decoration: none;"
+									class="status inProgress"><i class='bx bx-show'></i> Xem</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>13</td>
+							<td>Nguyễn Huỳnh Anh</td>
+							<td>09/06/2023</td>
+							<td>huynhanh@gmail.com</td>
+
+
+
+							<td style="color: red;">Ngưng hoạt động</td>
+
+
+							<td>
+
+
+								<a href="/admin/member/block/13" style="text-decoration: none;"
+									class="status delivered "> <i class='bx bx-reset'></i>Mở
+								</a>
+
+								<a href="/admin/member/view/13" style="text-decoration: none;"
+									class="status inProgress"><i class='bx bx-show'></i> Xem</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>14</td>
+							<td>Ngô Tuấn Dương</td>
+							<td>09/06/2023</td>
+							<td>duong@gmail.com.vn</td>
+
+
+							<td style="color: green;">Hoạt động</td>
+
+
+
+							<td>
+
+								<a href="/admin/member/block/14" style="text-decoration: none;" class="status return">
+									<i class='bx bxs-trash-alt'></i>Khóa
+								</a>
+
+
+								<a href="/admin/member/view/14" style="text-decoration: none;"
+									class="status inProgress"><i class='bx bx-show'></i> Xem</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>15</td>
+							<td>Lưu Đức Bình</td>
+							<td>26/09/2023</td>
+							<td>binhldps25658@fpt.edu.vn</td>
+
+
+							<td style="color: green;">Hoạt động</td>
+
+
+
+							<td>
+
+								<a href="/admin/member/block/15" style="text-decoration: none;" class="status return">
+									<i class='bx bxs-trash-alt'></i>Khóa
+								</a>
+
+
+								<a href="/admin/member/view/15" style="text-decoration: none;"
+									class="status inProgress"><i class='bx bx-show'></i> Xem</a>
+							</td>
+						</tr>
+
+
+					</tbody>
+				</table>
+			</div>
+
+
+		</div>
+	</div>
+	<script src='/js/mainadmin.js'></script>
+
+</body>
+
+</html>

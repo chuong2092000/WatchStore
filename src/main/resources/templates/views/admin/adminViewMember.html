@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Xem Thành Viên</title>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css
+" rel="stylesheet"> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+ <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css"
+	href='/cssadmin/styleadmin.css'>
+</head>
+<body>
+	<div class="containers">
+        <div th:insert="~{views/admin/header-menu::header-menu}"></div>
+		<!-- ========================= Main ==================== -->
+		<div class="main">
+			<h2 style="margin: 20px; font-weight: 600;">Thông Tin Người Dùng</h2>
+			<div class="container">
+
+				<form action="/admin/member/update" class="row" method="post"
+					style="margin-top: 10px;">
+					<div class="col-md-6">
+						<input type="hidden" value="1" name="id">
+						<div class="form-group">
+							<label>Email </label> <input type="email" class="form-control"
+								disabled="disabled" value="truongnvps24083@fpt.edu.vn" />
+						</div>
+						<div class="form-group">
+							<label>Họ và tên </label> <input type="text" class="form-control"
+								disabled="disabled" value="Nguyễn Văn Trường" />
+						</div>
+						<div class="form-group">
+							<label>Ngày Sinh </label> <input type="date" class="form-control"
+								disabled="disabled"
+								value="2001-05-26" />
+						</div>
+						<div class="form-group">
+							<label>Ngày tham gia </label> <input type="datetime"
+								class="form-control" disabled="disabled"
+								value="14:24 2023-06-06" />
+						</div>
+						<div class="form-group">
+							<label>Ngày cập nhật </label> <input type="datetime"
+								class="form-control" disabled="disabled"
+								value="18:12 2023-06-10" />
+						</div>
+
+					</div>
+					<div class="col-md-6">
+
+						<div class="form-group">
+							<label>Mật khẩu </label> <input type="text" class="form-control"
+								disabled="disabled" value="tru2605" />
+						</div>
+						<div class="form-group">
+							<label>Giới Tính</label> <input type="text" class="form-control"
+								value="Nam" disabled="disabled" />
+						</div>
+						<div class="form-group">
+							<label>Hoạt Động</label> 
+							<select class="form-control" name="active">
+									<option value="true" selected>Hoạt Động</option>
+									<option value="false" >Dừng Hoạt Động</option>
+							</select>
+						</div>
+
+
+						<div class="form-group">
+							<label>Quyền</label> 
+							<select class="form-control" name="role">
+									<option value="true" selected>Quản Lý</option>
+									<option value="false" >Người Dùng</option>
+							</select>
+						</div>
+
+						<div class="form-group" style="text-align: center;">
+							<a th:href="@{/WatchStore/adminMember}" class=" btn btn-light" style=" border-radius: 5px; width: 30%">
+									Trở Lại
+							</a>
+							<input type="submit" class=" btn btn-dark" value="Lưu"
+								style=" border-radius: 5px; width: 30%">
+						</div>
+
+					</div>
+				</form>
+
+
+			</div>
+		</div>
+	</div>
+	<script src='/js/mainadmin.js'></script>
+
+</body>
+</html>

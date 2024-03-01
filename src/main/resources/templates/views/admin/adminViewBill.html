@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Xem Hóa Đơn</title>
+
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css
+" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" type="text/css" href='/cssadmin/styleadmin.css'>
+</head>
+
+<body>
+	<div class="containers">
+		<div th:insert="~{views/admin/header-menu::header-menu}"></div>
+
+
+		<!-- ========================= Main ==================== -->
+		<div class="main">
+
+			<div class="container">
+				<div class="container"
+					style="padding: 20px 20px 150px 20px; height: auto; border: 1px solid black; border-radius: 10px;">
+					<h1 style="text-align: center; font-weight: bold;color: red">Hóa Đơn</h1>
+					<h4>Curnon &#169;</h4>
+					<ul class="nav flex-column">
+						<li class="nav-item mb-2">Hotline : 0999999</li>
+						<li class="nav-item mb-2">Mã Đơn Hàng : 1</li>
+						<li class="nav-item mb-2">Ngày Tạo : 22:51 2023-06-06
+						</li>
+						<li class="nav-item mb-2">Địa Chỉ : 22 Nguyen Van Qua Street
+							, Q12, TP HCM</li>
+						<li class="nav-item mb-2">Email : Curnon@gmail.com</li>
+						<li class="nav-item mb-2">Địa Chỉ Giao Hàng :
+							30 DHT 23, Đông Hưng Thuận , Quận 12 ,TP HCM</li>
+						<li class="nav-item mb-2">Số điện thoại người nhận :
+							0377379249</li>
+						<li class="nav-item mb-2 nav-link p-0 text-muted" >Người
+							nhận : Võ Văn Hậu</li>
+						<li class="nav-item mb-2 nav-link p-0 text-muted" >Thông
+							tin thêm : : Nhớ đóng gói kỹ nha</li>
+					</ul>
+					<hr>
+					<h3>Sản Phẩm Hóa Đơn</h3>
+					<div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">Stt</th>
+									<th scope="col">Mã Sản Phẩm</th>
+									<th scope="col">Tên Sản Phẩm</th>
+									<th scope="col">Giá Tiền</th>
+									<th scope="col">Số Lượng</th>
+									<th scope="col">Thành Tiền</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								<tr>
+									<td>1</td>
+									<td>1</td>
+									<td>SamSung Galaxy S23 Ultra</td>
+									<td>25.990.000,00 ₫</td>
+									<td>2</td>
+									<td>51.980.000,00 ₫</td>
+								</tr>
+
+
+							</tbody>
+						</table>
+					</div>
+
+
+					<hr>
+					<h6>
+						Tổng Tiền Sản Phẩm :
+						51.980.000,00 ₫
+					</h6>
+
+
+					<h6>
+						Mã giảm giá sản phẩm 20 % :
+						10.396.000,00 ₫
+					</h6>
+
+
+
+					<h5>
+						Tổng Tiền Đơn Hàng :
+						41.584.000,00 ₫
+					</h5>
+
+				</div>
+				<div class="container" style="margin: 15px">
+					<a th:href="@{/WatchStore/adminBill}" class="btn btn-light" style="width: 200px"> Trờ Lại</a> <a
+						href='/document/updateBiil.docx' class="btn btn-dark" style="width: 200px; color: white;"> Xuất
+						Hóa Đơn</a>
+				</div>
+				<div class="controller">
+
+					<form action="/admin/bill/updatestatus" method="post" class="row">
+						<input type="hidden" value="1" name="id"> <select name="update" class="form-control col-md-4 ">
+							<option value="Đã Đặt Hàng">Đã Đặt Hàng</option>
+							<option value="Đã Xác Nhận">Đã Xác Nhận</option>
+							<option value="Đã Đóng Gói">Đã Đóng Gói</option>
+							<option value="Đã Xuất Kho">Đã Xuất Kho</option>
+							<option value="Đã Giao Hàng">Đã Giao Hàng</option>
+							<option value="Đã Hủy">Đã Hủy</option>
+							<option value="Trả Hàng">Trả Hàng</option>
+							<option value="Chờ Thu Hồi">Chờ Thu Hồi</option>
+						</select>
+						<button class="btn btn-success col-md-2" style="margin-left: 10px">
+							<i class='bx bx-edit'></i>Cập Nhật Trạng Thái
+						</button>
+					</form>
+
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+	<script src='/js/mainadmin.js'></script>
+
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tổng Quan</title>
+	<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel='stylesheet'>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" type="text/css" href="" th:href="@{/cssadmin/styleadmin.css}">
+</head>
+
+<body>
+	<div class="containers">
+		<div th:insert="~{views/admin/header-menu.html::header-menu}"></div>
+		<div class="main">
+			<!-- ======================= Cards ================== -->
+
+			<div th:insert="~{views/admin/header-card::header-card}"></div>
+			<!-- ================ Order Details List ================= -->
+			<div class="row">
+				<div class="col-md-8">
+					<div class="container" style="margin: 20px">
+						<h2>Thông Kê Tổng Quan</h2>
+					</div>
+
+					<table class="table table-hover container" style="width: 80%;margin: 0 auto;">
+						<thead>
+							<tr>
+								<th scope="col">Stt</th>
+								<th scope="col">Loại Sản Phẩm</th>
+								<th scope="col">Tổng Tiền</th>
+								<th scope="col">Số Lượng</th>
+								<th scope="col">Tổng Giá Trị</th>
+							</tr>
+						</thead>
+
+						<tbody>
+
+							<tr>
+								<td>1</td>
+								<td>APPLE</td>
+								<td>98.520.000,00 ₫</td>
+								<td>8</td>
+								<td>788.160.000,00 ₫</td>
+							</tr>
+
+							<tr>
+								<td>2</td>
+								<td>SAMSUNG</td>
+								<td>89.940.000,00 ₫</td>
+								<td>6</td>
+								<td>539.640.000,00 ₫</td>
+							</tr>
+
+							<tr>
+								<td>3</td>
+								<td>XIAOMI</td>
+								<td>79.340.000,00 ₫</td>
+								<td>6</td>
+								<td>476.040.000,00 ₫</td>
+							</tr>
+
+							<tr>
+								<td>4</td>
+								<td>OPPO</td>
+								<td>71.940.000,00 ₫</td>
+								<td>6</td>
+								<td>431.640.000,00 ₫</td>
+							</tr>
+
+							<tr>
+								<td>5</td>
+								<td>SONY</td>
+								<td>13.970.000,00 ₫</td>
+								<td>3</td>
+								<td>41.910.000,00 ₫</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+
+				<!-- ================= New Customers ================ -->
+				<div class="col-md-4">
+					<div class="container" style="margin: 20px">
+						<h2>Mua Nhiều</h2>
+					</div>
+
+					<table class="table table-hover">
+
+						<tr>
+							<td width="60px">
+								<div class="imgBx">
+									<img src="/img/customer02.jpg" alt="" style="width: 60px; border-radius: 50%">
+								</div>
+							</td>
+							<td>
+								<h6>
+									Võ Văn Hậu <br> <span>Đơn đã mua : 11</span>
+								</h6>
+							</td>
+						</tr>
+
+						<tr>
+							<td width="60px">
+								<div class="imgBx">
+									<img src="/img/customer02.jpg" alt="" style="width: 60px; border-radius: 50%">
+								</div>
+							</td>
+							<td>
+								<h6>
+									Nguyễn Văn Trường <br> <span>Đơn đã mua : 10</span>
+								</h6>
+							</td>
+						</tr>
+
+
+
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src='/js/mainadmin.js'></script>
+
+</body>
+
+</html>
